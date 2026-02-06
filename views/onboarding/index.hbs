@@ -1,0 +1,546 @@
+<!-- 8-Step Onboarding Flow -->
+<div class="container container-md" style="padding-top: 2rem; padding-bottom: 2rem;">
+  <!-- Progress Indicator -->
+  <div class="progress-steps">
+    <div class="progress-step">
+      <div class="step-circle active" data-step-circle="1">1</div>
+    </div>
+    <div class="step-line" data-step-line="1"></div>
+    <div class="progress-step">
+      <div class="step-circle" data-step-circle="2">2</div>
+    </div>
+    <div class="step-line" data-step-line="2"></div>
+    <div class="progress-step">
+      <div class="step-circle" data-step-circle="3">3</div>
+    </div>
+    <div class="step-line" data-step-line="3"></div>
+    <div class="progress-step">
+      <div class="step-circle" data-step-circle="4">4</div>
+    </div>
+    <div class="step-line" data-step-line="4"></div>
+    <div class="progress-step">
+      <div class="step-circle" data-step-circle="5">5</div>
+    </div>
+    <div class="step-line" data-step-line="5"></div>
+    <div class="progress-step">
+      <div class="step-circle" data-step-circle="6">6</div>
+    </div>
+    <div class="step-line" data-step-line="6"></div>
+    <div class="progress-step">
+      <div class="step-circle" data-step-circle="7">7</div>
+    </div>
+    <div class="step-line" data-step-line="7"></div>
+    <div class="progress-step">
+      <div class="step-circle" data-step-circle="8">8</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <!-- Step 1: Basic Info -->
+    <div id="step-1">
+      <div class="card-header">
+        <h2 class="card-title">Basic Information</h2>
+        <p class="text-muted" style="font-size: 0.875rem; margin-top: 0.25rem;">Tell us about yourself</p>
+      </div>
+
+      <form>
+        <div class="form-group">
+          <label for="onboard-name" class="form-label">Full Name</label>
+          <input type="text" id="onboard-name" class="form-input" placeholder="Enter your full name" value="John Doe">
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label for="onboard-age" class="form-label">Age</label>
+            <input type="number" id="onboard-age" class="form-input" placeholder="25" min="13" max="100">
+          </div>
+
+          <div class="form-group">
+            <label for="onboard-gender" class="form-label">Gender</label>
+            <select id="onboard-gender" class="form-input form-select">
+              <option value="">Select gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; margin-top: 1.5rem;">
+          <button type="button" class="btn btn-primary btn-lg" onclick="nextStep()">
+            Continue
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Step 2: Location -->
+    <div id="step-2" class="hidden">
+      <div class="card-header">
+        <h2 class="card-title">Your Location</h2>
+        <p class="text-muted" style="font-size: 0.875rem; margin-top: 0.25rem;">Help us find players near you</p>
+      </div>
+
+      <form>
+        <div class="form-group">
+          <label for="country" class="form-label">Country</label>
+          <select id="country" class="form-input form-select" onchange="onCountryChange('country', 'state', 'city')">
+            <option value="">Select country</option>
+          </select>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label for="state" class="form-label">State / Province</label>
+            <select id="state" class="form-input form-select" onchange="onStateChange('country', 'state', 'city')">
+              <option value="">Select state</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="city" class="form-label">City</label>
+            <select id="city" class="form-input form-select">
+              <option value="">Select city</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; margin-top: 1.5rem;">
+          <button type="button" class="btn btn-secondary btn-lg" onclick="prevStep()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Back
+          </button>
+          <button type="button" class="btn btn-primary btn-lg" onclick="nextStep()">
+            Continue
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Step 3: Profile Image & Tagline -->
+    <div id="step-3" class="hidden">
+      <div class="card-header">
+        <h2 class="card-title">Profile Personalization</h2>
+        <p class="text-muted" style="font-size: 0.875rem; margin-top: 0.25rem;">Make your profile stand out</p>
+      </div>
+
+      <form>
+        <div class="form-group">
+          <label class="form-label">Profile Photo</label>
+          <label for="profile-image-input" class="image-upload">
+            <div class="image-upload-preview" id="profile-image-preview">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--gray-400)" stroke-width="1.5" style="margin: 36px;">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+            <span style="font-weight: 500; color: var(--primary);">Click to upload photo</span>
+            <span style="font-size: 0.75rem; color: var(--gray-500);">PNG, JPG up to 5MB</span>
+            <input type="file" id="profile-image-input" accept="image/*" class="hidden">
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label for="tagline" class="form-label">Tagline</label>
+          <input type="text" id="tagline" class="form-input" placeholder="e.g., Cricket enthusiast | Weekend warrior" maxlength="200">
+          <span class="form-hint">A short bio that describes you (max 200 characters)</span>
+        </div>
+
+        <div class="form-group">
+          <label for="introduction" class="form-label">Introduction (Optional)</label>
+          <textarea id="introduction" class="form-input" rows="3" placeholder="Tell others about your sports journey..."></textarea>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; margin-top: 1.5rem;">
+          <button type="button" class="btn btn-secondary btn-lg" onclick="prevStep()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Back
+          </button>
+          <button type="button" class="btn btn-primary btn-lg" onclick="nextStep()">
+            Continue
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Step 4: Sport Selection -->
+    <div id="step-4" class="hidden">
+      <div class="card-header">
+        <h2 class="card-title">Select Your Sports</h2>
+        <p class="text-muted" style="font-size: 0.875rem; margin-top: 0.25rem;">
+          Choose the sports you play
+          <span class="badge badge-primary" style="margin-left: 0.5rem;"><span id="selected-sports-count">0</span> selected</span>
+        </p>
+      </div>
+
+      <!-- Sport Categories -->
+      <div style="margin-bottom: 1.5rem;">
+        <h4 style="font-size: 0.875rem; font-weight: 600; color: var(--gray-600); margin-bottom: 0.75rem;">Team Sports</h4>
+        <div class="sport-grid">
+          <div class="sport-card" id="sport-cricket" onclick="toggleSportSelection('cricket')">
+            <div class="sport-card-icon" style="background: rgba(34, 197, 94, 0.1);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+              </svg>
+            </div>
+            <span class="sport-card-name">Cricket</span>
+          </div>
+          <div class="sport-card" id="sport-football" onclick="toggleSportSelection('football')">
+            <div class="sport-card-icon" style="background: rgba(59, 130, 246, 0.1);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+              </svg>
+            </div>
+            <span class="sport-card-name">Football</span>
+          </div>
+          <div class="sport-card" id="sport-basketball" onclick="toggleSportSelection('basketball')">
+            <div class="sport-card-icon" style="background: rgba(245, 158, 11, 0.1);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+              </svg>
+            </div>
+            <span class="sport-card-name">Basketball</span>
+          </div>
+          <div class="sport-card" id="sport-volleyball" onclick="toggleSportSelection('volleyball')">
+            <div class="sport-card-icon" style="background: rgba(239, 68, 68, 0.1);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+              </svg>
+            </div>
+            <span class="sport-card-name">Volleyball</span>
+          </div>
+          <div class="sport-card" id="sport-hockey" onclick="toggleSportSelection('hockey')">
+            <div class="sport-card-icon" style="background: rgba(139, 92, 246, 0.1);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+              </svg>
+            </div>
+            <span class="sport-card-name">Hockey</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 1.5rem;">
+        <h4 style="font-size: 0.875rem; font-weight: 600; color: var(--gray-600); margin-bottom: 0.75rem;">Racket Sports</h4>
+        <div class="sport-grid">
+          <div class="sport-card" id="sport-tennis" onclick="toggleSportSelection('tennis')">
+            <div class="sport-card-icon" style="background: rgba(16, 185, 129, 0.1);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+              </svg>
+            </div>
+            <span class="sport-card-name">Tennis</span>
+          </div>
+          <div class="sport-card" id="sport-badminton" onclick="toggleSportSelection('badminton')">
+            <div class="sport-card-icon" style="background: rgba(6, 182, 212, 0.1);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+              </svg>
+            </div>
+            <span class="sport-card-name">Badminton</span>
+          </div>
+          <div class="sport-card" id="sport-tabletennis" onclick="toggleSportSelection('tabletennis')">
+            <div class="sport-card-icon" style="background: rgba(236, 72, 153, 0.1);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+              </svg>
+            </div>
+            <span class="sport-card-name">Table Tennis</span>
+          </div>
+          <div class="sport-card" id="sport-squash" onclick="toggleSportSelection('squash')">
+            <div class="sport-card-icon" style="background: rgba(99, 102, 241, 0.1);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+              </svg>
+            </div>
+            <span class="sport-card-name">Squash</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h4 style="font-size: 0.875rem; font-weight: 600; color: var(--gray-600); margin-bottom: 0.75rem;">Individual Sports</h4>
+        <div class="sport-grid">
+          <div class="sport-card" id="sport-swimming" onclick="toggleSportSelection('swimming')">
+            <div class="sport-card-icon" style="background: rgba(14, 165, 233, 0.1);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+              </svg>
+            </div>
+            <span class="sport-card-name">Swimming</span>
+          </div>
+          <div class="sport-card" id="sport-cycling" onclick="toggleSportSelection('cycling')">
+            <div class="sport-card-icon" style="background: rgba(132, 204, 22, 0.1);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#84cc16" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+              </svg>
+            </div>
+            <span class="sport-card-name">Cycling</span>
+          </div>
+          <div class="sport-card" id="sport-golf" onclick="toggleSportSelection('golf')">
+            <div class="sport-card-icon" style="background: rgba(34, 197, 94, 0.1);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+              </svg>
+            </div>
+            <span class="sport-card-name">Golf</span>
+          </div>
+          <div class="sport-card" id="sport-archery" onclick="toggleSportSelection('archery')">
+            <div class="sport-card-icon" style="background: rgba(251, 146, 60, 0.1);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+              </svg>
+            </div>
+            <span class="sport-card-name">Archery</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; margin-top: 1.5rem;">
+        <button type="button" class="btn btn-secondary btn-lg" onclick="prevStep()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          Back
+        </button>
+        <button type="button" class="btn btn-primary btn-lg" onclick="nextStep()">
+          Continue
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 5: Skill Level per Sport -->
+    <div id="step-5" class="hidden">
+      <div class="card-header">
+        <h2 class="card-title">Set Your Skill Levels</h2>
+        <p class="text-muted" style="font-size: 0.875rem; margin-top: 0.25rem;">Rate your skill in each selected sport</p>
+      </div>
+
+      <!-- Dynamic skill level selectors based on selected sports -->
+      <div id="skill-level-container">
+        <div class="form-group" data-sport="cricket">
+          <label class="form-label" style="display: flex; align-items: center; gap: 0.5rem;">
+            <span style="width: 32px; height: 32px; border-radius: 8px; background: rgba(34, 197, 94, 0.1); display: flex; align-items: center; justify-content: center;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+              </svg>
+            </span>
+            Cricket
+          </label>
+          <div class="skill-levels">
+            <button type="button" class="skill-level" data-level="beginner" onclick="selectSkillLevel('cricket', 'beginner')">Beginner</button>
+            <button type="button" class="skill-level" data-level="intermediate" onclick="selectSkillLevel('cricket', 'intermediate')">Intermediate</button>
+            <button type="button" class="skill-level" data-level="advanced" onclick="selectSkillLevel('cricket', 'advanced')">Advanced</button>
+            <button type="button" class="skill-level" data-level="professional" onclick="selectSkillLevel('cricket', 'professional')">Professional</button>
+          </div>
+        </div>
+
+        <div class="form-group" data-sport="tennis">
+          <label class="form-label" style="display: flex; align-items: center; gap: 0.5rem;">
+            <span style="width: 32px; height: 32px; border-radius: 8px; background: rgba(16, 185, 129, 0.1); display: flex; align-items: center; justify-content: center;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+              </svg>
+            </span>
+            Tennis
+          </label>
+          <div class="skill-levels">
+            <button type="button" class="skill-level" data-level="beginner" onclick="selectSkillLevel('tennis', 'beginner')">Beginner</button>
+            <button type="button" class="skill-level" data-level="intermediate" onclick="selectSkillLevel('tennis', 'intermediate')">Intermediate</button>
+            <button type="button" class="skill-level" data-level="advanced" onclick="selectSkillLevel('tennis', 'advanced')">Advanced</button>
+            <button type="button" class="skill-level" data-level="professional" onclick="selectSkillLevel('tennis', 'professional')">Professional</button>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; margin-top: 1.5rem;">
+        <button type="button" class="btn btn-secondary btn-lg" onclick="prevStep()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          Back
+        </button>
+        <button type="button" class="btn btn-primary btn-lg" onclick="nextStep()">
+          Continue
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 6: Tournament History (Optional) -->
+    <div id="step-6" class="hidden">
+      <div class="card-header">
+        <h2 class="card-title">Tournament History</h2>
+        <p class="text-muted" style="font-size: 0.875rem; margin-top: 0.25rem;">Share your competitive experience (optional)</p>
+      </div>
+
+      <form>
+        <div class="form-group">
+          <label class="form-label">Highest Level Competed</label>
+          <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+            <label class="form-checkbox-group" style="padding: 1rem; border: 1px solid var(--gray-200); border-radius: var(--radius-lg); cursor: pointer;">
+              <input type="checkbox" class="form-checkbox" name="tournament_level" value="local">
+              <div>
+                <span style="font-weight: 500; color: var(--gray-800);">Local / Club Level</span>
+                <p style="font-size: 0.75rem; color: var(--gray-500); margin: 0;">Local tournaments, club championships</p>
+              </div>
+            </label>
+            <label class="form-checkbox-group" style="padding: 1rem; border: 1px solid var(--gray-200); border-radius: var(--radius-lg); cursor: pointer;">
+              <input type="checkbox" class="form-checkbox" name="tournament_level" value="state">
+              <div>
+                <span style="font-weight: 500; color: var(--gray-800);">State Level</span>
+                <p style="font-size: 0.75rem; color: var(--gray-500); margin: 0;">State championships, inter-district</p>
+              </div>
+            </label>
+            <label class="form-checkbox-group" style="padding: 1rem; border: 1px solid var(--gray-200); border-radius: var(--radius-lg); cursor: pointer;">
+              <input type="checkbox" class="form-checkbox" name="tournament_level" value="national">
+              <div>
+                <span style="font-weight: 500; color: var(--gray-800);">National Level</span>
+                <p style="font-size: 0.75rem; color: var(--gray-500); margin: 0;">National championships, inter-state</p>
+              </div>
+            </label>
+            <label class="form-checkbox-group" style="padding: 1rem; border: 1px solid var(--gray-200); border-radius: var(--radius-lg); cursor: pointer;">
+              <input type="checkbox" class="form-checkbox" name="tournament_level" value="international">
+              <div>
+                <span style="font-weight: 500; color: var(--gray-800);">International Level</span>
+                <p style="font-size: 0.75rem; color: var(--gray-500); margin: 0;">International tournaments, Olympics</p>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; margin-top: 1.5rem;">
+          <button type="button" class="btn btn-secondary btn-lg" onclick="prevStep()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Back
+          </button>
+          <button type="button" class="btn btn-primary btn-lg" onclick="nextStep()">
+            Continue
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Step 7: Hobbies (Optional) -->
+    <div id="step-7" class="hidden">
+      <div class="card-header">
+        <h2 class="card-title">Other Interests</h2>
+        <p class="text-muted" style="font-size: 0.875rem; margin-top: 0.25rem;">Help others discover common interests (optional)</p>
+      </div>
+
+      <form>
+        <div class="form-group">
+          <label class="form-label">Select your hobbies</label>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+            <button type="button" class="btn btn-outline btn-sm" onclick="this.classList.toggle('btn-primary'); this.classList.toggle('btn-outline');">Fitness</button>
+            <button type="button" class="btn btn-outline btn-sm" onclick="this.classList.toggle('btn-primary'); this.classList.toggle('btn-outline');">Gaming</button>
+            <button type="button" class="btn btn-outline btn-sm" onclick="this.classList.toggle('btn-primary'); this.classList.toggle('btn-outline');">Music</button>
+            <button type="button" class="btn btn-outline btn-sm" onclick="this.classList.toggle('btn-primary'); this.classList.toggle('btn-outline');">Travel</button>
+            <button type="button" class="btn btn-outline btn-sm" onclick="this.classList.toggle('btn-primary'); this.classList.toggle('btn-outline');">Photography</button>
+            <button type="button" class="btn btn-outline btn-sm" onclick="this.classList.toggle('btn-primary'); this.classList.toggle('btn-outline');">Reading</button>
+            <button type="button" class="btn btn-outline btn-sm" onclick="this.classList.toggle('btn-primary'); this.classList.toggle('btn-outline');">Cooking</button>
+            <button type="button" class="btn btn-outline btn-sm" onclick="this.classList.toggle('btn-primary'); this.classList.toggle('btn-outline');">Movies</button>
+            <button type="button" class="btn btn-outline btn-sm" onclick="this.classList.toggle('btn-primary'); this.classList.toggle('btn-outline');">Technology</button>
+            <button type="button" class="btn btn-outline btn-sm" onclick="this.classList.toggle('btn-primary'); this.classList.toggle('btn-outline');">Art</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="other-hobbies" class="form-label">Other hobbies</label>
+          <input type="text" id="other-hobbies" class="form-input" placeholder="Enter other hobbies, separated by commas">
+        </div>
+
+        <div style="display: flex; justify-content: space-between; margin-top: 1.5rem;">
+          <button type="button" class="btn btn-secondary btn-lg" onclick="prevStep()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Back
+          </button>
+          <button type="button" class="btn btn-primary btn-lg" onclick="nextStep()">
+            Continue
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Step 8: Complete -->
+    <div id="step-8" class="hidden">
+      <div style="text-align: center; padding: 2rem 0;">
+        <div style="width: 80px; height: 80px; border-radius: 50%; background: rgba(34, 197, 94, 0.1); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+
+        <h2 class="card-title" style="margin-bottom: 0.5rem;">You're all set!</h2>
+        <p class="text-muted" style="margin-bottom: 2rem;">
+          Your profile is complete. Start exploring the sports community in your city.
+        </p>
+
+        <!-- Quick Stats Preview -->
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2rem; text-align: center;">
+          <div style="padding: 1rem; background: var(--gray-50); border-radius: var(--radius-lg);">
+            <p style="font-size: 1.5rem; font-weight: 700; color: var(--primary); margin: 0;">2</p>
+            <p style="font-size: 0.75rem; color: var(--gray-500); margin: 0;">Sports Selected</p>
+          </div>
+          <div style="padding: 1rem; background: var(--gray-50); border-radius: var(--radius-lg);">
+            <p style="font-size: 1.5rem; font-weight: 700; color: var(--success); margin: 0;">0</p>
+            <p style="font-size: 0.75rem; color: var(--gray-500); margin: 0;">Matches Played</p>
+          </div>
+          <div style="padding: 1rem; background: var(--gray-50); border-radius: var(--radius-lg);">
+            <p style="font-size: 1.5rem; font-weight: 700; color: var(--accent); margin: 0;">0</p>
+            <p style="font-size: 0.75rem; color: var(--gray-500); margin: 0;">Tokens Earned</p>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-primary btn-lg" onclick="window.location.href='/dashboard'">
+          Go to Dashboard
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

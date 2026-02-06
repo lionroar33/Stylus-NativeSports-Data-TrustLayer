@@ -1,0 +1,159 @@
+{{!< layouts/main}}
+
+<div class="page-header">
+  <div class="page-header-content">
+    <div>
+      <h1>{{pageTitle}}</h1>
+      <p class="text-muted">Discuss sports, matches, and strategies</p>
+    </div>
+    <button class="btn btn-primary">+ New Post</button>
+  </div>
+</div>
+
+<div class="forum-categories">
+  <button class="category-btn active">All</button>
+  <button class="category-btn">Cricket</button>
+  <button class="category-btn">Match Discussion</button>
+  <button class="category-btn">Tips & Strategies</button>
+  <button class="category-btn">Off-topic</button>
+</div>
+
+<div class="forum-posts">
+  <div class="post-card">
+    <div class="post-votes">
+      <button class="vote-btn up">▲</button>
+      <span class="vote-count">24</span>
+      <button class="vote-btn down">▼</button>
+    </div>
+    <div class="post-content">
+      <h3><a href="#">Best batting techniques for T20 cricket?</a></h3>
+      <p>Looking for tips on improving my strike rate in T20 matches. What techniques do you recommend for power hitting?</p>
+      <div class="post-meta">
+        <span class="author">by CricketFan99</span>
+        <span class="category">Tips & Strategies</span>
+        <span class="time">2 hours ago</span>
+        <span class="comments">12 comments</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="post-card">
+    <div class="post-votes">
+      <button class="vote-btn up active">▲</button>
+      <span class="vote-count">45</span>
+      <button class="vote-btn down">▼</button>
+    </div>
+    <div class="post-content">
+      <h3><a href="#">Match Analysis: Team Alpha vs Team Beta</a></h3>
+      <p>Great match yesterday! Let's discuss the key moments and turning points. That catch in the 18th over was incredible!</p>
+      <div class="post-meta">
+        <span class="author">by MatchAnalyst</span>
+        <span class="category">Match Discussion</span>
+        <span class="time">5 hours ago</span>
+        <span class="comments">28 comments</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="post-card">
+    <div class="post-votes">
+      <button class="vote-btn up">▲</button>
+      <span class="vote-count">8</span>
+      <button class="vote-btn down">▼</button>
+    </div>
+    <div class="post-content">
+      <h3><a href="#">New to cricket - where to start?</a></h3>
+      <p>Just started playing cricket. Any recommendations for beginner drills and equipment?</p>
+      <div class="post-meta">
+        <span class="author">by NewPlayer2024</span>
+        <span class="category">Cricket</span>
+        <span class="time">1 day ago</span>
+        <span class="comments">15 comments</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .page-header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .forum-categories {
+    display: flex;
+    gap: 0.5rem;
+    margin: 1.5rem 0;
+    flex-wrap: wrap;
+  }
+  .category-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border-color);
+    background: var(--card-bg);
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.875rem;
+  }
+  .category-btn.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+  }
+  .forum-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .post-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.25rem;
+    display: flex;
+    gap: 1rem;
+  }
+  .post-votes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    min-width: 40px;
+  }
+  .vote-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.25rem;
+  }
+  .vote-btn:hover, .vote-btn.active { color: var(--primary); }
+  .vote-count { font-weight: 600; }
+  .post-content { flex: 1; }
+  .post-content h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+  }
+  .post-content h3 a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .post-content h3 a:hover { color: var(--primary); }
+  .post-content p {
+    margin: 0 0 0.75rem;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+  }
+  .post-meta {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+  .post-meta .category {
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--primary);
+    padding: 0.125rem 0.5rem;
+    border-radius: 4px;
+  }
+</style>

@@ -1,0 +1,219 @@
+{{!< layouts/main}}
+
+<div class="page-header">
+  <h1>{{pageTitle}}</h1>
+  <p class="text-muted">Ball-by-ball cricket scoring</p>
+</div>
+
+<div class="cricket-scorer">
+  <div class="score-display">
+    <div class="team-score">
+      <span class="team-name">Team Alpha</span>
+      <span class="score">156/4</span>
+      <span class="overs">18.2 overs</span>
+    </div>
+    <div class="match-info-display">
+      <span class="run-rate">RR: 8.51</span>
+      <span class="target">Target: 180</span>
+      <span class="required">REQ: 14.40</span>
+    </div>
+  </div>
+
+  <div class="batsmen-info">
+    <div class="batsman striker">
+      <span class="name">R. Sharma *</span>
+      <span class="runs">67</span>
+      <span class="balls">(42)</span>
+      <span class="sr">SR: 159.52</span>
+    </div>
+    <div class="batsman">
+      <span class="name">V. Kohli</span>
+      <span class="runs">34</span>
+      <span class="balls">(28)</span>
+      <span class="sr">SR: 121.43</span>
+    </div>
+  </div>
+
+  <div class="bowler-info">
+    <span class="label">Bowling:</span>
+    <span class="name">J. Bumrah</span>
+    <span class="figures">2-0-18-1</span>
+    <span class="economy">Econ: 9.00</span>
+  </div>
+
+  <div class="this-over">
+    <span class="label">This Over:</span>
+    <div class="balls">
+      <span class="ball">1</span>
+      <span class="ball four">4</span>
+      <span class="ball">0</span>
+      <span class="ball wicket">W</span>
+      <span class="ball six">6</span>
+      <span class="ball current">?</span>
+    </div>
+  </div>
+
+  <div class="scoring-buttons">
+    <div class="run-buttons">
+      <button class="run-btn" data-runs="0">0</button>
+      <button class="run-btn" data-runs="1">1</button>
+      <button class="run-btn" data-runs="2">2</button>
+      <button class="run-btn" data-runs="3">3</button>
+      <button class="run-btn four" data-runs="4">4</button>
+      <button class="run-btn six" data-runs="6">6</button>
+    </div>
+
+    <div class="extra-buttons">
+      <button class="extra-btn">Wide</button>
+      <button class="extra-btn">No Ball</button>
+      <button class="extra-btn">Bye</button>
+      <button class="extra-btn">Leg Bye</button>
+    </div>
+
+    <div class="wicket-buttons">
+      <button class="wicket-btn">Wicket</button>
+      <button class="action-btn">Undo</button>
+      <button class="action-btn">End Over</button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .cricket-scorer {
+    max-width: 600px;
+  }
+  .score-display {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    border-radius: 12px;
+    padding: 1.5rem;
+    color: white;
+    margin-bottom: 1rem;
+  }
+  .team-score {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .team-score .team-name {
+    font-weight: 600;
+  }
+  .team-score .score {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+  .team-score .overs {
+    opacity: 0.8;
+  }
+  .match-info-display {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.875rem;
+    opacity: 0.9;
+  }
+  .batsmen-info {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  .batsman {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 0;
+  }
+  .batsman.striker {
+    font-weight: 600;
+  }
+  .batsman .name { flex: 1; }
+  .batsman .runs { font-size: 1.25rem; }
+  .batsman .balls { color: var(--text-muted); }
+  .batsman .sr { font-size: 0.875rem; color: var(--text-muted); }
+  .bowler-info {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  .bowler-info .label { color: var(--text-muted); }
+  .bowler-info .name { font-weight: 600; }
+  .bowler-info .figures { color: var(--primary); }
+  .this-over {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .this-over .label { color: var(--text-muted); }
+  .this-over .balls { display: flex; gap: 0.5rem; }
+  .this-over .ball {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+  .this-over .ball.four { background: #10b981; color: white; }
+  .this-over .ball.six { background: #6366f1; color: white; }
+  .this-over .ball.wicket { background: #ef4444; color: white; }
+  .this-over .ball.current { background: var(--border-color); }
+  .scoring-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .run-buttons {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0.5rem;
+  }
+  .run-btn {
+    padding: 1rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    border: 1px solid var(--border-color);
+    background: var(--card-bg);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .run-btn:hover { border-color: var(--primary); }
+  .run-btn.four { background: #10b981; color: white; border-color: #10b981; }
+  .run-btn.six { background: #6366f1; color: white; border-color: #6366f1; }
+  .extra-buttons, .wicket-buttons {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .extra-btn, .action-btn {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    background: var(--card-bg);
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .wicket-btn {
+    flex: 1;
+    padding: 0.75rem;
+    background: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+</style>

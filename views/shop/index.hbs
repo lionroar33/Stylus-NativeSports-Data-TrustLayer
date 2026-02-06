@@ -1,0 +1,244 @@
+{{!< layouts/main}}
+
+<div class="page-header">
+  <h1>{{pageTitle}}</h1>
+  <p class="text-muted">Shop for sports gear and equipment</p>
+</div>
+
+<div class="shop-layout">
+  <aside class="shop-filters">
+    <h3>Categories</h3>
+    <ul class="filter-list">
+      <li class="active">All Products</li>
+      <li>Cricket Bats</li>
+      <li>Protective Gear</li>
+      <li>Clothing</li>
+      <li>Accessories</li>
+      <li>Shoes</li>
+    </ul>
+
+    <h3>Brands</h3>
+    <ul class="filter-list">
+      <li><label><input type="checkbox"> SS</label></li>
+      <li><label><input type="checkbox"> SG</label></li>
+      <li><label><input type="checkbox"> Kookaburra</label></li>
+      <li><label><input type="checkbox"> Gray-Nicolls</label></li>
+    </ul>
+
+    <h3>Price Range</h3>
+    <div class="price-range">
+      <input type="range" min="0" max="500" value="250">
+      <div class="price-labels">
+        <span>$0</span>
+        <span>$500</span>
+      </div>
+    </div>
+  </aside>
+
+  <main class="shop-products">
+    <div class="shop-header">
+      <span class="result-count">Showing 12 products</span>
+      <select class="form-control sort-select">
+        <option>Sort by: Featured</option>
+        <option>Price: Low to High</option>
+        <option>Price: High to Low</option>
+        <option>Newest First</option>
+      </select>
+    </div>
+
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product-image">
+          <span class="badge badge-success">New</span>
+        </div>
+        <div class="product-info">
+          <h4>SS Ton Player Edition Bat</h4>
+          <p class="brand">SS Cricket</p>
+          <div class="rating">★★★★★ (24)</div>
+          <div class="price">$299.99</div>
+          <button class="btn btn-primary btn-sm">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image"></div>
+        <div class="product-info">
+          <h4>SG Cricket Helmet</h4>
+          <p class="brand">SG Sports</p>
+          <div class="rating">★★★★☆ (18)</div>
+          <div class="price">$89.99</div>
+          <button class="btn btn-primary btn-sm">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image">
+          <span class="badge badge-warning">Sale</span>
+        </div>
+        <div class="product-info">
+          <h4>Kookaburra Batting Gloves</h4>
+          <p class="brand">Kookaburra</p>
+          <div class="rating">★★★★★ (32)</div>
+          <div class="price">
+            <span class="original">$59.99</span>
+            $44.99
+          </div>
+          <button class="btn btn-primary btn-sm">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image"></div>
+        <div class="product-info">
+          <h4>Gray-Nicolls Pads</h4>
+          <p class="brand">Gray-Nicolls</p>
+          <div class="rating">★★★★☆ (15)</div>
+          <div class="price">$79.99</div>
+          <button class="btn btn-primary btn-sm">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image"></div>
+        <div class="product-info">
+          <h4>Cricket Training Ball Set</h4>
+          <p class="brand">SS Cricket</p>
+          <div class="rating">★★★★☆ (45)</div>
+          <div class="price">$24.99</div>
+          <button class="btn btn-primary btn-sm">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image"></div>
+        <div class="product-info">
+          <h4>Cricket Kit Bag - Large</h4>
+          <p class="brand">SG Sports</p>
+          <div class="rating">★★★★★ (28)</div>
+          <div class="price">$129.99</div>
+          <button class="btn btn-primary btn-sm">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<style>
+  .shop-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 2rem;
+    margin-top: 1.5rem;
+  }
+  .shop-filters {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    height: fit-content;
+  }
+  .shop-filters h3 {
+    font-size: 0.875rem;
+    margin: 0 0 0.75rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .shop-filters h3:not(:first-child) {
+    margin-top: 1.5rem;
+  }
+  .filter-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .filter-list li {
+    padding: 0.5rem 0;
+    cursor: pointer;
+    font-size: 0.9375rem;
+  }
+  .filter-list li.active {
+    color: var(--primary);
+    font-weight: 600;
+  }
+  .filter-list label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+  }
+  .price-range input {
+    width: 100%;
+  }
+  .price-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+  .shop-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  .result-count {
+    color: var(--text-muted);
+  }
+  .sort-select {
+    width: auto;
+  }
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  .product-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .product-image {
+    height: 150px;
+    background: var(--bg-secondary);
+    position: relative;
+  }
+  .product-image .badge {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+  }
+  .product-info {
+    padding: 1rem;
+  }
+  .product-info h4 {
+    margin: 0 0 0.25rem;
+    font-size: 0.9375rem;
+  }
+  .product-info .brand {
+    margin: 0 0 0.5rem;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+  .product-info .rating {
+    font-size: 0.75rem;
+    color: #f59e0b;
+    margin-bottom: 0.5rem;
+  }
+  .product-info .price {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 0.75rem;
+  }
+  .product-info .price .original {
+    text-decoration: line-through;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    margin-right: 0.5rem;
+  }
+  @media (max-width: 768px) {
+    .shop-layout { grid-template-columns: 1fr; }
+    .shop-filters { display: none; }
+  }
+</style>

@@ -1,0 +1,80 @@
+{{!< layouts/main}}
+
+<div class="page-header">
+  <h1>{{pageTitle}}</h1>
+  <p class="text-muted">Live scoring for your matches</p>
+</div>
+
+<div class="scoring-options">
+  <a href="/scoring/cricket" class="scoring-card">
+    <div class="scoring-icon">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M12 2v20M2 12h20"/>
+      </svg>
+    </div>
+    <h3>Cricket Scoring</h3>
+    <p>Full ball-by-ball scoring with all cricket rules</p>
+    <span class="badge badge-success">Available</span>
+  </a>
+
+  <div class="scoring-card disabled">
+    <div class="scoring-icon">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"/>
+      </svg>
+    </div>
+    <h3>Football Scoring</h3>
+    <p>Goal tracking and match events</p>
+    <span class="badge badge-secondary">Coming Soon</span>
+  </div>
+
+  <div class="scoring-card disabled">
+    <div class="scoring-icon">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"/>
+      </svg>
+    </div>
+    <h3>Tennis Scoring</h3>
+    <p>Set and game scoring system</p>
+    <span class="badge badge-secondary">Coming Soon</span>
+  </div>
+</div>
+
+<style>
+  .scoring-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .scoring-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s;
+  }
+  .scoring-card:hover:not(.disabled) {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+  }
+  .scoring-card.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  .scoring-icon {
+    margin-bottom: 1rem;
+    color: var(--primary);
+  }
+  .scoring-card h3 {
+    margin: 0 0 0.5rem;
+  }
+  .scoring-card p {
+    margin: 0 0 1rem;
+    color: var(--text-muted);
+  }
+</style>

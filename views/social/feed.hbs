@@ -1,0 +1,248 @@
+{{!< layouts/main}}
+
+<div class="page-header">
+  <h1>{{pageTitle}}</h1>
+  <p class="text-muted">See what your friends are up to</p>
+</div>
+
+<div class="feed-layout">
+  <div class="feed-main">
+    <div class="create-post-card">
+      <textarea placeholder="Share your latest match update..."></textarea>
+      <div class="create-post-actions">
+        <button class="btn btn-sm btn-outline">Add Photo</button>
+        <button class="btn btn-sm btn-primary">Post</button>
+      </div>
+    </div>
+
+    <div class="feed-post">
+      <div class="post-header">
+        <div class="avatar">RS</div>
+        <div class="post-author">
+          <strong>Rahul Sharma</strong>
+          <span>2 hours ago</span>
+        </div>
+      </div>
+      <div class="post-body">
+        <p>Just scored my first century in the local league! 102* off 68 balls. Hard work pays off! 🏏</p>
+        <div class="post-stats">
+          <span class="stat highlight">Century!</span>
+          <span class="stat">Strike Rate: 150.00</span>
+        </div>
+      </div>
+      <div class="post-actions">
+        <button class="action-btn">👏 45</button>
+        <button class="action-btn">💬 12</button>
+        <button class="action-btn">🔄 Share</button>
+      </div>
+    </div>
+
+    <div class="feed-post">
+      <div class="post-header">
+        <div class="avatar">VK</div>
+        <div class="post-author">
+          <strong>Virat Kumar</strong>
+          <span>5 hours ago</span>
+        </div>
+      </div>
+      <div class="post-body">
+        <p>Great practice session today. Working on my yorkers for the upcoming tournament. 🎯</p>
+      </div>
+      <div class="post-actions">
+        <button class="action-btn">👏 23</button>
+        <button class="action-btn">💬 5</button>
+        <button class="action-btn">🔄 Share</button>
+      </div>
+    </div>
+
+    <div class="feed-post match-result">
+      <div class="post-header">
+        <div class="avatar">⚡</div>
+        <div class="post-author">
+          <strong>Match Result</strong>
+          <span>Today</span>
+        </div>
+      </div>
+      <div class="post-body">
+        <div class="match-result-card">
+          <div class="team">
+            <span>Team Alpha</span>
+            <strong>189/6</strong>
+          </div>
+          <span class="result-badge">Won by 44 runs</span>
+          <div class="team">
+            <span>Team Beta</span>
+            <strong>145/10</strong>
+          </div>
+        </div>
+      </div>
+      <div class="post-actions">
+        <button class="action-btn">View Scorecard</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="feed-sidebar">
+    <div class="sidebar-card">
+      <h3>Suggested Players</h3>
+      <div class="player-suggestion">
+        <div class="avatar">MS</div>
+        <div class="player-info">
+          <strong>MS Dhoni</strong>
+          <span>5 mutual friends</span>
+        </div>
+        <button class="btn btn-sm btn-outline">Follow</button>
+      </div>
+      <div class="player-suggestion">
+        <div class="avatar">AB</div>
+        <div class="player-info">
+          <strong>AB de Villiers</strong>
+          <span>3 mutual friends</span>
+        </div>
+        <button class="btn btn-sm btn-outline">Follow</button>
+      </div>
+    </div>
+
+    <div class="sidebar-card">
+      <h3>Trending</h3>
+      <div class="trending-item">#SummerLeague2024</div>
+      <div class="trending-item">#CenturyClub</div>
+      <div class="trending-item">#CricketFever</div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .feed-layout {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  .create-post-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  .create-post-card textarea {
+    width: 100%;
+    border: none;
+    resize: none;
+    height: 60px;
+    background: transparent;
+    color: inherit;
+    font-family: inherit;
+    font-size: 0.9375rem;
+  }
+  .create-post-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--border-color);
+  }
+  .feed-post {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  .post-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+  }
+  .post-author strong { display: block; }
+  .post-author span { font-size: 0.75rem; color: var(--text-muted); }
+  .post-body p { margin: 0 0 1rem; }
+  .post-stats {
+    display: flex;
+    gap: 1rem;
+    padding: 0.75rem;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    font-size: 0.875rem;
+  }
+  .post-stats .highlight { color: var(--primary); font-weight: 600; }
+  .post-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+  }
+  .post-actions .action-btn {
+    flex: 1;
+    padding: 0.5rem;
+    border: none;
+    background: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-radius: 6px;
+  }
+  .post-actions .action-btn:hover { background: var(--bg-secondary); }
+  .match-result-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+  }
+  .match-result-card .team { text-align: center; }
+  .match-result-card .team span { display: block; font-size: 0.875rem; color: var(--text-muted); }
+  .match-result-card .team strong { font-size: 1.25rem; }
+  .result-badge {
+    background: var(--primary);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .sidebar-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  .sidebar-card h3 {
+    margin: 0 0 1rem;
+    font-size: 0.9375rem;
+  }
+  .player-suggestion {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+  .player-suggestion .avatar { width: 36px; height: 36px; font-size: 0.875rem; }
+  .player-info { flex: 1; }
+  .player-info strong { display: block; font-size: 0.875rem; }
+  .player-info span { font-size: 0.75rem; color: var(--text-muted); }
+  .trending-item {
+    padding: 0.5rem 0;
+    color: var(--primary);
+    font-weight: 500;
+  }
+  @media (max-width: 768px) {
+    .feed-layout { grid-template-columns: 1fr; }
+    .feed-sidebar { display: none; }
+  }
+</style>

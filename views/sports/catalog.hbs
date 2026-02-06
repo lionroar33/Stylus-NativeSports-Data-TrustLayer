@@ -1,0 +1,76 @@
+{{!< layouts/main}}
+
+<div class="page-header">
+  <h1>{{pageTitle}}</h1>
+  <p class="text-muted">Browse all available sports</p>
+</div>
+
+<div class="catalog-filters">
+  <input type="search" class="form-control" placeholder="Search sports...">
+  <select class="form-control">
+    <option>All Categories</option>
+    <option>Team Sports</option>
+    <option>Individual Sports</option>
+    <option>Racket Sports</option>
+  </select>
+</div>
+
+<div class="sports-catalog">
+  <div class="catalog-item">
+    <h3>Cricket</h3>
+    <p>A bat-and-ball game played between two teams of eleven players.</p>
+    <span class="badge badge-success">Available</span>
+  </div>
+  <div class="catalog-item">
+    <h3>Football</h3>
+    <p>The world's most popular sport played with a spherical ball.</p>
+    <span class="badge badge-warning">Coming Soon</span>
+  </div>
+  <div class="catalog-item">
+    <h3>Tennis</h3>
+    <p>A racket sport played individually or in pairs.</p>
+    <span class="badge badge-warning">Coming Soon</span>
+  </div>
+  <div class="catalog-item">
+    <h3>Basketball</h3>
+    <p>A team sport played on a rectangular court.</p>
+    <span class="badge badge-warning">Coming Soon</span>
+  </div>
+</div>
+
+<style>
+  .catalog-filters {
+    display: flex;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .catalog-filters input {
+    flex: 1;
+  }
+  .catalog-filters select {
+    width: 200px;
+  }
+  .sports-catalog {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .catalog-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .catalog-item h3 {
+    margin: 0;
+    min-width: 120px;
+  }
+  .catalog-item p {
+    margin: 0;
+    flex: 1;
+    color: var(--text-muted);
+  }
+</style>

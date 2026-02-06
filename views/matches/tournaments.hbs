@@ -1,0 +1,100 @@
+{{!< layouts/main}}
+
+<div class="page-header">
+  <h1>{{pageTitle}}</h1>
+  <p class="text-muted">Browse and join tournaments</p>
+</div>
+
+<div class="tournaments-grid">
+  <div class="tournament-card">
+    <div class="tournament-banner" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">
+      <span class="tournament-badge">ACTIVE</span>
+    </div>
+    <div class="tournament-content">
+      <h3>Summer Cricket League</h3>
+      <p>T20 Format - 16 Teams</p>
+      <div class="tournament-meta">
+        <span>12/16 teams joined</span>
+        <span>Starts: Mar 15</span>
+      </div>
+      <button class="btn btn-primary btn-sm">Join Tournament</button>
+    </div>
+  </div>
+
+  <div class="tournament-card">
+    <div class="tournament-banner" style="background: linear-gradient(135deg, #10b981, #34d399);">
+      <span class="tournament-badge">REGISTRATION</span>
+    </div>
+    <div class="tournament-content">
+      <h3>Weekend Warriors Cup</h3>
+      <p>ODI Format - 8 Teams</p>
+      <div class="tournament-meta">
+        <span>5/8 teams joined</span>
+        <span>Starts: Mar 20</span>
+      </div>
+      <button class="btn btn-primary btn-sm">Register Now</button>
+    </div>
+  </div>
+
+  <div class="tournament-card">
+    <div class="tournament-banner" style="background: linear-gradient(135deg, #f59e0b, #fbbf24);">
+      <span class="tournament-badge">UPCOMING</span>
+    </div>
+    <div class="tournament-content">
+      <h3>Pro Champions Trophy</h3>
+      <p>Test Format - 4 Teams</p>
+      <div class="tournament-meta">
+        <span>Invite Only</span>
+        <span>Starts: Apr 1</span>
+      </div>
+      <button class="btn btn-outline btn-sm" disabled>Coming Soon</button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .tournaments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .tournament-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .tournament-banner {
+    height: 100px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 1rem;
+  }
+  .tournament-badge {
+    background: rgba(255,255,255,0.2);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .tournament-content {
+    padding: 1.25rem;
+  }
+  .tournament-content h3 {
+    margin: 0 0 0.5rem;
+  }
+  .tournament-content p {
+    margin: 0 0 1rem;
+    color: var(--text-muted);
+  }
+  .tournament-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+  }
+</style>

@@ -1,0 +1,92 @@
+{{!< layouts/main}}
+
+<div class="page-header">
+  <h1>{{pageTitle}}</h1>
+  <p class="text-muted">Select your sports and track your performance</p>
+</div>
+
+<div class="sports-grid">
+  <div class="sport-card active">
+    <div class="sport-icon">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M12 2v20M2 12h20"/>
+      </svg>
+    </div>
+    <h3>Cricket</h3>
+    <p>Primary Sport</p>
+    <span class="badge badge-success">Active</span>
+  </div>
+
+  <div class="sport-card">
+    <div class="sport-icon">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"/>
+      </svg>
+    </div>
+    <h3>Football</h3>
+    <p>Coming Soon</p>
+    <span class="badge badge-secondary">Inactive</span>
+  </div>
+
+  <div class="sport-card">
+    <div class="sport-icon">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"/>
+      </svg>
+    </div>
+    <h3>Tennis</h3>
+    <p>Coming Soon</p>
+    <span class="badge badge-secondary">Inactive</span>
+  </div>
+
+  <div class="sport-card">
+    <div class="sport-icon">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"/>
+      </svg>
+    </div>
+    <h3>Basketball</h3>
+    <p>Coming Soon</p>
+    <span class="badge badge-secondary">Inactive</span>
+  </div>
+</div>
+
+<style>
+  .sports-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .sport-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .sport-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+  }
+  .sport-card.active {
+    border-color: var(--primary);
+    background: rgba(99, 102, 241, 0.1);
+  }
+  .sport-icon {
+    margin-bottom: 1rem;
+    color: var(--primary);
+  }
+  .sport-card h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.125rem;
+  }
+  .sport-card p {
+    margin: 0 0 1rem;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+  }
+</style>

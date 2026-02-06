@@ -1,0 +1,292 @@
+<!-- Dashboard Page -->
+<div class="page-wrapper">
+  {{> sidebar}}
+
+  <div style="flex: 1; display: flex; flex-direction: column;">
+    {{> header pageTitle="Dashboard"}}
+
+    <main class="main-content">
+      <!-- Welcome Section -->
+      <div style="margin-bottom: 2rem;">
+        <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.25rem;">Welcome back, John!</h2>
+        <p class="text-muted">Here's what's happening in your sports community</p>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="stats-grid" style="margin-bottom: 2rem;">
+        <div class="stat-card">
+          <div class="stat-card-icon primary">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+          </div>
+          <p class="stat-card-value">12</p>
+          <p class="stat-card-label">Matches Played</p>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-card-icon success">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+              <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+              <path d="M4 22h16"></path>
+              <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
+            </svg>
+          </div>
+          <p class="stat-card-value">8</p>
+          <p class="stat-card-label">Wins</p>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-card-icon warning">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path>
+              <path d="M12 18V6"></path>
+            </svg>
+          </div>
+          <p class="stat-card-value">245</p>
+          <p class="stat-card-label">Tokens Earned</p>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-card-icon accent">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+            </svg>
+          </div>
+          <p class="stat-card-value">78%</p>
+          <p class="stat-card-label">Effort Score</p>
+        </div>
+      </div>
+
+      <!-- Two Column Layout -->
+      <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem;">
+        <!-- Left Column -->
+        <div>
+          <!-- Upcoming Matches -->
+          <div class="card" style="margin-bottom: 1.5rem;">
+            <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+              <h3 class="card-title">Upcoming Matches</h3>
+              <a href="/matches/create" class="btn btn-primary btn-sm">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                New Match
+              </a>
+            </div>
+
+            <!-- Match Item -->
+            <div style="display: flex; align-items: center; padding: 1rem 0; border-bottom: 1px solid var(--gray-100);">
+              <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(34, 197, 94, 0.1); display: flex; align-items: center; justify-content: center; margin-right: 1rem;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                </svg>
+              </div>
+              <div style="flex: 1;">
+                <p style="font-weight: 600; color: var(--gray-800); margin: 0;">Box Cricket - T10</p>
+                <p style="font-size: 0.875rem; color: var(--gray-500); margin: 0;">vs Team Warriors</p>
+              </div>
+              <div style="text-align: right;">
+                <p style="font-weight: 500; color: var(--gray-800); margin: 0;">Tomorrow</p>
+                <p style="font-size: 0.875rem; color: var(--gray-500); margin: 0;">6:00 PM</p>
+              </div>
+              <span class="badge badge-primary" style="margin-left: 1rem;">Scheduled</span>
+            </div>
+
+            <!-- Match Item -->
+            <div style="display: flex; align-items: center; padding: 1rem 0; border-bottom: 1px solid var(--gray-100);">
+              <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(16, 185, 129, 0.1); display: flex; align-items: center; justify-content: center; margin-right: 1rem;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                </svg>
+              </div>
+              <div style="flex: 1;">
+                <p style="font-weight: 600; color: var(--gray-800); margin: 0;">Tennis - Singles</p>
+                <p style="font-size: 0.875rem; color: var(--gray-500); margin: 0;">vs Mike Johnson</p>
+              </div>
+              <div style="text-align: right;">
+                <p style="font-weight: 500; color: var(--gray-800); margin: 0;">Sat, Feb 8</p>
+                <p style="font-size: 0.875rem; color: var(--gray-500); margin: 0;">10:00 AM</p>
+              </div>
+              <span class="badge badge-warning" style="margin-left: 1rem;">Pending</span>
+            </div>
+
+            <!-- View All Link -->
+            <div style="text-align: center; padding-top: 1rem;">
+              <a href="/matches" style="font-size: 0.875rem; font-weight: 500;">View all matches</a>
+            </div>
+          </div>
+
+          <!-- Recent Activity -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Recent Activity</h3>
+            </div>
+
+            <!-- Activity Items -->
+            <div style="display: flex; align-items: flex-start; padding: 0.75rem 0; border-bottom: 1px solid var(--gray-100);">
+              <div class="avatar avatar-sm" style="background: rgba(34, 197, 94, 0.1); color: #22c55e; margin-right: 0.75rem;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                  <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                  <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
+                </svg>
+              </div>
+              <div style="flex: 1;">
+                <p style="font-size: 0.875rem; color: var(--gray-800); margin: 0;">
+                  <strong>Match Won!</strong> You won the cricket match against Team Strikers
+                </p>
+                <p style="font-size: 0.75rem; color: var(--gray-500); margin: 0;">2 hours ago</p>
+              </div>
+              <span class="badge badge-success">+25 tokens</span>
+            </div>
+
+            <div style="display: flex; align-items: flex-start; padding: 0.75rem 0; border-bottom: 1px solid var(--gray-100);">
+              <div class="avatar avatar-sm" style="background: rgba(245, 158, 11, 0.1); color: #f59e0b; margin-right: 0.75rem;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+              </div>
+              <div style="flex: 1;">
+                <p style="font-size: 0.875rem; color: var(--gray-800); margin: 0;">
+                  <strong>Nifty Fifty!</strong> You scored 50 runs in a single innings
+                </p>
+                <p style="font-size: 0.75rem; color: var(--gray-500); margin: 0;">2 hours ago</p>
+              </div>
+              <span class="badge badge-warning">Achievement</span>
+            </div>
+
+            <div style="display: flex; align-items: flex-start; padding: 0.75rem 0;">
+              <div class="avatar avatar-sm" style="background: rgba(59, 130, 246, 0.1); color: #3b82f6; margin-right: 0.75rem;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="8.5" cy="7" r="4"></circle>
+                  <line x1="20" y1="8" x2="20" y2="14"></line>
+                  <line x1="23" y1="11" x2="17" y2="11"></line>
+                </svg>
+              </div>
+              <div style="flex: 1;">
+                <p style="font-size: 0.875rem; color: var(--gray-800); margin: 0;">
+                  <strong>New Follower!</strong> Sarah Miller started following you
+                </p>
+                <p style="font-size: 0.75rem; color: var(--gray-500); margin: 0;">Yesterday</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <div>
+          <!-- My Sports -->
+          <div class="card" style="margin-bottom: 1.5rem;">
+            <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+              <h3 class="card-title">My Sports</h3>
+              <a href="/sports" style="font-size: 0.875rem;">Edit</a>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+              <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.75rem; background: var(--gray-50); border-radius: var(--radius-lg);">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                  <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(34, 197, 94, 0.1); display: flex; align-items: center; justify-content: center;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2">
+                      <circle cx="12" cy="12" r="10"></circle>
+                    </svg>
+                  </div>
+                  <div>
+                    <p style="font-weight: 500; color: var(--gray-800); margin: 0; font-size: 0.875rem;">Cricket</p>
+                    <p style="font-size: 0.75rem; color: var(--gray-500); margin: 0;">Advanced</p>
+                  </div>
+                </div>
+                <span class="badge badge-success">8 wins</span>
+              </div>
+
+              <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.75rem; background: var(--gray-50); border-radius: var(--radius-lg);">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                  <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(16, 185, 129, 0.1); display: flex; align-items: center; justify-content: center;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+                      <circle cx="12" cy="12" r="10"></circle>
+                    </svg>
+                  </div>
+                  <div>
+                    <p style="font-weight: 500; color: var(--gray-800); margin: 0; font-size: 0.875rem;">Tennis</p>
+                    <p style="font-size: 0.75rem; color: var(--gray-500); margin: 0;">Intermediate</p>
+                  </div>
+                </div>
+                <span class="badge badge-primary">4 wins</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Nearby Players -->
+          <div class="card" style="margin-bottom: 1.5rem;">
+            <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+              <h3 class="card-title">Nearby Players</h3>
+              <a href="/discover" style="font-size: 0.875rem;">View all</a>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+              <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <div class="avatar">RK</div>
+                <div style="flex: 1;">
+                  <p style="font-weight: 500; color: var(--gray-800); margin: 0; font-size: 0.875rem;">Rahul Kumar</p>
+                  <p style="font-size: 0.75rem; color: var(--gray-500); margin: 0;">Cricket, Badminton</p>
+                </div>
+                <button class="btn btn-outline btn-sm">Follow</button>
+              </div>
+
+              <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <div class="avatar" style="background: rgba(236, 72, 153, 0.1); color: #ec4899;">PS</div>
+                <div style="flex: 1;">
+                  <p style="font-weight: 500; color: var(--gray-800); margin: 0; font-size: 0.875rem;">Priya Sharma</p>
+                  <p style="font-size: 0.75rem; color: var(--gray-500); margin: 0;">Tennis, Swimming</p>
+                </div>
+                <button class="btn btn-outline btn-sm">Follow</button>
+              </div>
+
+              <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <div class="avatar" style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">AM</div>
+                <div style="flex: 1;">
+                  <p style="font-weight: 500; color: var(--gray-800); margin: 0; font-size: 0.875rem;">Amit Mehta</p>
+                  <p style="font-size: 0.75rem; color: var(--gray-500); margin: 0;">Football, Cricket</p>
+                </div>
+                <button class="btn btn-outline btn-sm">Follow</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Actions -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Quick Actions</h3>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+              <a href="/matches/create" class="btn btn-secondary btn-block" style="justify-content: flex-start;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+                Create Match
+              </a>
+              <a href="/scoring" class="btn btn-secondary btn-block" style="justify-content: flex-start;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                </svg>
+                Live Scoring
+              </a>
+              <a href="/wearables" class="btn btn-secondary btn-block" style="justify-content: flex-start;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="6" y="4" width="12" height="16" rx="2"></rect>
+                  <path d="M9 9h6"></path>
+                </svg>
+                Connect Wearable
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

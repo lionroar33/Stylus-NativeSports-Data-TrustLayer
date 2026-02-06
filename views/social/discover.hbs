@@ -1,0 +1,156 @@
+{{!< layouts/main}}
+
+<div class="page-header">
+  <h1>{{pageTitle}}</h1>
+  <p class="text-muted">Find players and teams to follow</p>
+</div>
+
+<div class="search-section">
+  <input type="search" class="form-control" placeholder="Search players, teams, or tournaments...">
+</div>
+
+<div class="discover-section">
+  <h3>Top Players This Week</h3>
+  <div class="players-grid">
+    <div class="player-card">
+      <div class="avatar large">RS</div>
+      <h4>Rahul Sharma</h4>
+      <p class="player-stats">
+        <span>456 runs</span>
+        <span>12 matches</span>
+      </p>
+      <button class="btn btn-outline btn-sm">Follow</button>
+    </div>
+    <div class="player-card">
+      <div class="avatar large">VK</div>
+      <h4>Virat Kumar</h4>
+      <p class="player-stats">
+        <span>389 runs</span>
+        <span>10 matches</span>
+      </p>
+      <button class="btn btn-outline btn-sm">Follow</button>
+    </div>
+    <div class="player-card">
+      <div class="avatar large">JB</div>
+      <h4>Jasprit Bumrah</h4>
+      <p class="player-stats">
+        <span>18 wickets</span>
+        <span>8 matches</span>
+      </p>
+      <button class="btn btn-outline btn-sm">Follow</button>
+    </div>
+    <div class="player-card">
+      <div class="avatar large">AB</div>
+      <h4>AB de Villiers</h4>
+      <p class="player-stats">
+        <span>312 runs</span>
+        <span>9 matches</span>
+      </p>
+      <button class="btn btn-primary btn-sm">Following</button>
+    </div>
+  </div>
+</div>
+
+<div class="discover-section">
+  <h3>Popular Teams</h3>
+  <div class="teams-list">
+    <div class="team-card">
+      <div class="team-logo">TA</div>
+      <div class="team-info">
+        <h4>Team Alpha</h4>
+        <p>1.2k followers • 8 wins this season</p>
+      </div>
+      <button class="btn btn-outline btn-sm">Follow</button>
+    </div>
+    <div class="team-card">
+      <div class="team-logo">TB</div>
+      <div class="team-info">
+        <h4>Team Beta</h4>
+        <p>980 followers • 6 wins this season</p>
+      </div>
+      <button class="btn btn-outline btn-sm">Follow</button>
+    </div>
+    <div class="team-card">
+      <div class="team-logo">TG</div>
+      <div class="team-info">
+        <h4>Team Gamma</h4>
+        <p>750 followers • 5 wins this season</p>
+      </div>
+      <button class="btn btn-outline btn-sm">Follow</button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .search-section {
+    margin: 1.5rem 0;
+  }
+  .search-section input {
+    max-width: 400px;
+  }
+  .discover-section {
+    margin-bottom: 2rem;
+  }
+  .discover-section h3 {
+    margin-bottom: 1rem;
+  }
+  .players-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+  .player-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+  }
+  .avatar.large {
+    width: 64px;
+    height: 64px;
+    font-size: 1.5rem;
+    margin: 0 auto 1rem;
+  }
+  .player-card h4 {
+    margin: 0 0 0.5rem;
+  }
+  .player-stats {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+  }
+  .teams-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .team-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .team-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    background: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+  }
+  .team-info {
+    flex: 1;
+  }
+  .team-info h4 { margin: 0 0 0.25rem; }
+  .team-info p { margin: 0; font-size: 0.875rem; color: var(--text-muted); }
+</style>

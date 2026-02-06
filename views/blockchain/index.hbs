@@ -1,0 +1,285 @@
+{{!< layouts/main}}
+
+<div class="page-header">
+  <h1>{{pageTitle}}</h1>
+  <p class="text-muted">Earn tokens for your performance</p>
+</div>
+
+<div class="wallet-section">
+  <div class="wallet-card">
+    <div class="wallet-header">
+      <span class="wallet-label">Your Wallet</span>
+      <span class="wallet-status connected">Connected</span>
+    </div>
+    <div class="wallet-balance">
+      <span class="balance-value">1,234.56</span>
+      <span class="balance-currency">SPP</span>
+    </div>
+    <div class="wallet-address">
+      <code>7xKXt...9mN4</code>
+      <button class="btn btn-sm btn-outline">Copy</button>
+    </div>
+    <div class="wallet-actions">
+      <button class="btn btn-primary">Claim Rewards</button>
+      <button class="btn btn-outline">View History</button>
+    </div>
+  </div>
+
+  <div class="token-stats">
+    <div class="token-stat">
+      <span class="label">Total Earned</span>
+      <span class="value">5,678.90 SPP</span>
+    </div>
+    <div class="token-stat">
+      <span class="label">Pending Rewards</span>
+      <span class="value">123.45 SPP</span>
+    </div>
+    <div class="token-stat">
+      <span class="label">Total Burned</span>
+      <span class="value">567.89 SPP</span>
+    </div>
+    <div class="token-stat">
+      <span class="label">Your Tier</span>
+      <span class="value tier">Pro</span>
+    </div>
+  </div>
+</div>
+
+<div class="rewards-section">
+  <h3>Reward Tiers</h3>
+  <div class="reward-tiers">
+    <div class="tier-card">
+      <div class="tier-icon">🏏</div>
+      <h4>Nifty Fifty</h4>
+      <p>Score 50+ runs</p>
+      <span class="tier-reward">+50 SPP</span>
+      <span class="tier-multiplier">1.5x burn</span>
+    </div>
+    <div class="tier-card">
+      <div class="tier-icon">💥</div>
+      <h4>Gayle Storm</h4>
+      <p>Score 100+ in T20</p>
+      <span class="tier-reward">+150 SPP</span>
+      <span class="tier-multiplier">3.0x burn</span>
+    </div>
+    <div class="tier-card">
+      <div class="tier-icon">🎯</div>
+      <h4>5-Wicket Haul</h4>
+      <p>Take 5+ wickets</p>
+      <span class="tier-reward">+100 SPP</span>
+      <span class="tier-multiplier">2.5x burn</span>
+    </div>
+    <div class="tier-card highlight">
+      <div class="tier-icon">🎩</div>
+      <h4>Hat-trick</h4>
+      <p>3 wickets in 3 balls</p>
+      <span class="tier-reward">+200 SPP</span>
+      <span class="tier-multiplier">3.0x burn</span>
+    </div>
+  </div>
+</div>
+
+<div class="leaderboard-section">
+  <h3>Token Leaderboard</h3>
+  <div class="leaderboard">
+    <div class="leaderboard-item rank-1">
+      <span class="rank">1</span>
+      <div class="avatar">MS</div>
+      <div class="player-info">
+        <strong>MS Dhoni</strong>
+        <span>Legend Tier</span>
+      </div>
+      <span class="tokens">12,456 SPP</span>
+    </div>
+    <div class="leaderboard-item rank-2">
+      <span class="rank">2</span>
+      <div class="avatar">VK</div>
+      <div class="player-info">
+        <strong>Virat Kohli</strong>
+        <span>Champion Tier</span>
+      </div>
+      <span class="tokens">10,234 SPP</span>
+    </div>
+    <div class="leaderboard-item rank-3">
+      <span class="rank">3</span>
+      <div class="avatar">RS</div>
+      <div class="player-info">
+        <strong>Rohit Sharma</strong>
+        <span>Champion Tier</span>
+      </div>
+      <span class="tokens">9,876 SPP</span>
+    </div>
+    <div class="leaderboard-item you">
+      <span class="rank">24</span>
+      <div class="avatar">JD</div>
+      <div class="player-info">
+        <strong>You (John Doe)</strong>
+        <span>Pro Tier</span>
+      </div>
+      <span class="tokens">1,234 SPP</span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .wallet-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .wallet-card {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    border-radius: 16px;
+    padding: 1.5rem;
+    color: white;
+  }
+  .wallet-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  .wallet-status {
+    background: rgba(255,255,255,0.2);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+  }
+  .wallet-balance {
+    margin-bottom: 1rem;
+  }
+  .balance-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+  .balance-currency {
+    font-size: 1.25rem;
+    opacity: 0.8;
+    margin-left: 0.5rem;
+  }
+  .wallet-address {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .wallet-address code {
+    background: rgba(255,255,255,0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    flex: 1;
+  }
+  .wallet-actions {
+    display: flex;
+    gap: 0.75rem;
+  }
+  .wallet-actions .btn-outline {
+    border-color: rgba(255,255,255,0.5);
+    color: white;
+  }
+  .token-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .token-stat {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.25rem;
+  }
+  .token-stat .label {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-bottom: 0.25rem;
+  }
+  .token-stat .value {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  .token-stat .value.tier {
+    color: var(--primary);
+  }
+  .rewards-section, .leaderboard-section {
+    margin-bottom: 2rem;
+  }
+  .rewards-section h3, .leaderboard-section h3 {
+    margin-bottom: 1rem;
+  }
+  .reward-tiers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  .tier-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+  }
+  .tier-card.highlight {
+    border-color: var(--primary);
+    background: rgba(99, 102, 241, 0.1);
+  }
+  .tier-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+  .tier-card h4 { margin: 0 0 0.5rem; }
+  .tier-card p { margin: 0 0 1rem; font-size: 0.875rem; color: var(--text-muted); }
+  .tier-reward {
+    display: block;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--primary);
+  }
+  .tier-multiplier {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+  .leaderboard {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .leaderboard-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .leaderboard-item:last-child { border-bottom: none; }
+  .leaderboard-item.you { background: rgba(99, 102, 241, 0.1); }
+  .leaderboard-item .rank {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+  }
+  .rank-1 .rank { background: #fbbf24; color: #000; }
+  .rank-2 .rank { background: #9ca3af; color: #000; }
+  .rank-3 .rank { background: #cd7f32; color: #fff; }
+  .leaderboard-item .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+  }
+  .leaderboard-item .player-info { flex: 1; }
+  .leaderboard-item .player-info strong { display: block; }
+  .leaderboard-item .player-info span { font-size: 0.75rem; color: var(--text-muted); }
+  .leaderboard-item .tokens { font-weight: 600; color: var(--primary); }
+  @media (max-width: 768px) {
+    .wallet-section { grid-template-columns: 1fr; }
+  }
+</style>

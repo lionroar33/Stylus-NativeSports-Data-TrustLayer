@@ -1,0 +1,174 @@
+{{!< layouts/main}}
+
+<div class="page-header">
+  <h1>{{pageTitle}}</h1>
+  <p class="text-muted">View your token transaction history</p>
+</div>
+
+<div class="history-filters">
+  <select class="form-control">
+    <option>All Transactions</option>
+    <option>Rewards</option>
+    <option>Burns</option>
+    <option>Transfers</option>
+  </select>
+  <input type="date" class="form-control">
+  <input type="date" class="form-control">
+</div>
+
+<div class="transactions-list">
+  <div class="transaction-item reward">
+    <div class="tx-icon">🏏</div>
+    <div class="tx-details">
+      <strong>Nifty Fifty Reward</strong>
+      <p>Scored 67 runs vs Team Beta</p>
+      <span class="tx-hash">tx: 18f9a2...3b4c</span>
+    </div>
+    <div class="tx-amount positive">+50.00 SPP</div>
+    <div class="tx-time">2 hours ago</div>
+  </div>
+
+  <div class="transaction-item burn">
+    <div class="tx-icon">🔥</div>
+    <div class="tx-details">
+      <strong>Token Burn</strong>
+      <p>Performance multiplier burn</p>
+      <span class="tx-hash">tx: 7c8d2e...9f1a</span>
+    </div>
+    <div class="tx-amount negative">-5.00 SPP</div>
+    <div class="tx-time">2 hours ago</div>
+  </div>
+
+  <div class="transaction-item reward">
+    <div class="tx-icon">💥</div>
+    <div class="tx-details">
+      <strong>Gayle Storm Reward</strong>
+      <p>Scored 102* runs vs Team Alpha</p>
+      <span class="tx-hash">tx: 4a5b6c...7d8e</span>
+    </div>
+    <div class="tx-amount positive">+150.00 SPP</div>
+    <div class="tx-time">Yesterday</div>
+  </div>
+
+  <div class="transaction-item burn">
+    <div class="tx-icon">🔥</div>
+    <div class="tx-details">
+      <strong>Token Burn</strong>
+      <p>Performance multiplier burn</p>
+      <span class="tx-hash">tx: 1a2b3c...4d5e</span>
+    </div>
+    <div class="tx-amount negative">-15.00 SPP</div>
+    <div class="tx-time">Yesterday</div>
+  </div>
+
+  <div class="transaction-item reward">
+    <div class="tx-icon">🎯</div>
+    <div class="tx-details">
+      <strong>5-Wicket Haul Reward</strong>
+      <p>Took 5/23 vs Team Gamma</p>
+      <span class="tx-hash">tx: 9f8e7d...6c5b</span>
+    </div>
+    <div class="tx-amount positive">+100.00 SPP</div>
+    <div class="tx-time">3 days ago</div>
+  </div>
+
+  <div class="transaction-item burn">
+    <div class="tx-icon">🔥</div>
+    <div class="tx-details">
+      <strong>Token Burn</strong>
+      <p>Performance multiplier burn</p>
+      <span class="tx-hash">tx: 2b3c4d...5e6f</span>
+    </div>
+    <div class="tx-amount negative">-10.00 SPP</div>
+    <div class="tx-time">3 days ago</div>
+  </div>
+</div>
+
+<div class="pagination">
+  <button class="btn btn-outline btn-sm" disabled>Previous</button>
+  <span class="page-info">Page 1 of 5</span>
+  <button class="btn btn-outline btn-sm">Next</button>
+</div>
+
+<style>
+  .history-filters {
+    display: flex;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .history-filters select,
+  .history-filters input {
+    width: auto;
+  }
+  .transactions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .transaction-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .tx-icon {
+    font-size: 1.5rem;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .transaction-item.reward .tx-icon { background: rgba(16, 185, 129, 0.1); }
+  .transaction-item.burn .tx-icon { background: rgba(239, 68, 68, 0.1); }
+  .tx-details {
+    flex: 1;
+  }
+  .tx-details strong {
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+  .tx-details p {
+    margin: 0 0 0.25rem;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+  }
+  .tx-hash {
+    font-size: 0.75rem;
+    color: var(--primary);
+    font-family: monospace;
+  }
+  .tx-amount {
+    font-size: 1.125rem;
+    font-weight: 600;
+    min-width: 120px;
+    text-align: right;
+  }
+  .tx-amount.positive { color: #10b981; }
+  .tx-amount.negative { color: #ef4444; }
+  .tx-time {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    min-width: 100px;
+    text-align: right;
+  }
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+  .page-info {
+    color: var(--text-muted);
+  }
+  @media (max-width: 768px) {
+    .history-filters { flex-wrap: wrap; }
+    .transaction-item { flex-wrap: wrap; }
+    .tx-time { width: 100%; text-align: left; margin-top: 0.5rem; }
+  }
+</style>

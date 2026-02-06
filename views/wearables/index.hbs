@@ -1,0 +1,271 @@
+{{!< layouts/main}}
+
+<div class="page-header">
+  <h1>{{pageTitle}}</h1>
+  <p class="text-muted">Connect your fitness devices and track calories</p>
+</div>
+
+<div class="device-status">
+  <div class="device-card connected">
+    <div class="device-icon">⌚</div>
+    <div class="device-info">
+      <strong>Apple Watch</strong>
+      <span>Connected</span>
+    </div>
+    <div class="device-actions">
+      <button class="btn btn-sm btn-outline">Sync Now</button>
+      <button class="btn btn-sm btn-outline danger">Disconnect</button>
+    </div>
+  </div>
+
+  <div class="device-card">
+    <div class="device-icon">📱</div>
+    <div class="device-info">
+      <strong>Fitbit</strong>
+      <span>Not connected</span>
+    </div>
+    <div class="device-actions">
+      <button class="btn btn-sm btn-primary">Connect</button>
+    </div>
+  </div>
+
+  <div class="device-card">
+    <div class="device-icon">💪</div>
+    <div class="device-info">
+      <strong>Garmin</strong>
+      <span>Not connected</span>
+    </div>
+    <div class="device-actions">
+      <button class="btn btn-sm btn-primary">Connect</button>
+    </div>
+  </div>
+</div>
+
+<div class="health-dashboard">
+  <h3>Today's Activity</h3>
+  <div class="health-stats">
+    <div class="health-stat-card">
+      <div class="stat-ring">
+        <svg viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="45" fill="none" stroke="var(--border-color)" stroke-width="8"/>
+          <circle cx="50" cy="50" r="45" fill="none" stroke="#ef4444" stroke-width="8" stroke-dasharray="283" stroke-dashoffset="70" transform="rotate(-90 50 50)"/>
+        </svg>
+        <span class="stat-value">1,847</span>
+      </div>
+      <strong>Calories Burned</strong>
+      <span>Goal: 2,500 cal</span>
+    </div>
+
+    <div class="health-stat-card">
+      <div class="stat-ring">
+        <svg viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="45" fill="none" stroke="var(--border-color)" stroke-width="8"/>
+          <circle cx="50" cy="50" r="45" fill="none" stroke="#10b981" stroke-width="8" stroke-dasharray="283" stroke-dashoffset="100" transform="rotate(-90 50 50)"/>
+        </svg>
+        <span class="stat-value">8,234</span>
+      </div>
+      <strong>Steps</strong>
+      <span>Goal: 10,000</span>
+    </div>
+
+    <div class="health-stat-card">
+      <div class="stat-ring">
+        <svg viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="45" fill="none" stroke="var(--border-color)" stroke-width="8"/>
+          <circle cx="50" cy="50" r="45" fill="none" stroke="#6366f1" stroke-width="8" stroke-dasharray="283" stroke-dashoffset="140" transform="rotate(-90 50 50)"/>
+        </svg>
+        <span class="stat-value">45</span>
+      </div>
+      <strong>Active Minutes</strong>
+      <span>Goal: 60 min</span>
+    </div>
+
+    <div class="health-stat-card">
+      <div class="stat-ring">
+        <svg viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="45" fill="none" stroke="var(--border-color)" stroke-width="8"/>
+          <circle cx="50" cy="50" r="45" fill="none" stroke="#f59e0b" stroke-width="8" stroke-dasharray="283" stroke-dashoffset="30" transform="rotate(-90 50 50)"/>
+        </svg>
+        <span class="stat-value">142</span>
+      </div>
+      <strong>Heart Rate</strong>
+      <span>bpm (during match)</span>
+    </div>
+  </div>
+</div>
+
+<div class="activity-log">
+  <h3>Recent Activities</h3>
+  <div class="activity-list">
+    <div class="activity-item">
+      <div class="activity-icon">🏏</div>
+      <div class="activity-details">
+        <strong>Cricket Match</strong>
+        <p>T20 vs Team Beta</p>
+      </div>
+      <div class="activity-stats">
+        <span>486 cal</span>
+        <span>2h 15m</span>
+      </div>
+      <span class="activity-time">Today, 2:00 PM</span>
+    </div>
+
+    <div class="activity-item">
+      <div class="activity-icon">🏃</div>
+      <div class="activity-details">
+        <strong>Practice Session</strong>
+        <p>Batting drills</p>
+      </div>
+      <div class="activity-stats">
+        <span>312 cal</span>
+        <span>1h 30m</span>
+      </div>
+      <span class="activity-time">Yesterday, 10:00 AM</span>
+    </div>
+
+    <div class="activity-item">
+      <div class="activity-icon">🚶</div>
+      <div class="activity-details">
+        <strong>Walking</strong>
+        <p>Morning walk</p>
+      </div>
+      <div class="activity-stats">
+        <span>156 cal</span>
+        <span>45m</span>
+      </div>
+      <span class="activity-time">Yesterday, 7:00 AM</span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .device-status {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .device-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .device-card.connected {
+    border-color: #10b981;
+  }
+  .device-icon {
+    font-size: 2rem;
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    background: var(--bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .device-info {
+    flex: 1;
+  }
+  .device-info strong { display: block; }
+  .device-info span { font-size: 0.875rem; color: var(--text-muted); }
+  .device-card.connected .device-info span { color: #10b981; }
+  .device-actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .btn.danger {
+    color: #ef4444;
+    border-color: #ef4444;
+  }
+  .health-dashboard, .activity-log {
+    margin-bottom: 2rem;
+  }
+  .health-dashboard h3, .activity-log h3 {
+    margin-bottom: 1rem;
+  }
+  .health-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+  .health-stat-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+  }
+  .stat-ring {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 1rem;
+    position: relative;
+  }
+  .stat-ring svg {
+    width: 100%;
+    height: 100%;
+  }
+  .stat-ring .stat-value {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+  .health-stat-card strong {
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+  .health-stat-card span {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+  }
+  .activity-list {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .activity-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .activity-item:last-child { border-bottom: none; }
+  .activity-icon {
+    font-size: 1.5rem;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .activity-details { flex: 1; }
+  .activity-details strong { display: block; }
+  .activity-details p { margin: 0; font-size: 0.875rem; color: var(--text-muted); }
+  .activity-stats {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.875rem;
+  }
+  .activity-stats span {
+    padding: 0.25rem 0.5rem;
+    background: var(--bg-secondary);
+    border-radius: 4px;
+  }
+  .activity-time {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    min-width: 140px;
+    text-align: right;
+  }
+</style>

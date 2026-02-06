@@ -1,0 +1,280 @@
+{{!< layouts/main}}
+
+<div class="page-header">
+  <h1>{{pageTitle}}</h1>
+  <p class="text-muted">AI-powered real-time commentary</p>
+</div>
+
+<div class="commentary-settings">
+  <div class="setting-card">
+    <h3>Commentary Persona</h3>
+    <p class="setting-description">Choose the style of commentary you prefer</p>
+    <div class="persona-options">
+      <label class="persona-option active">
+        <input type="radio" name="persona" value="play_by_play" checked>
+        <div class="persona-content">
+          <span class="persona-icon">🎙️</span>
+          <strong>Play-by-Play</strong>
+          <p>Professional and descriptive</p>
+        </div>
+      </label>
+      <label class="persona-option">
+        <input type="radio" name="persona" value="energetic">
+        <div class="persona-content">
+          <span class="persona-icon">🔥</span>
+          <strong>Energetic</strong>
+          <p>Exciting and enthusiastic</p>
+        </div>
+      </label>
+      <label class="persona-option">
+        <input type="radio" name="persona" value="coaching">
+        <div class="persona-content">
+          <span class="persona-icon">📋</span>
+          <strong>Coaching</strong>
+          <p>Technical and analytical</p>
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <div class="setting-card">
+    <h3>Commentary Triggers</h3>
+    <p class="setting-description">Events that generate commentary</p>
+    <div class="trigger-list">
+      <label class="trigger-item">
+        <input type="checkbox" checked>
+        <span>Boundary (4 runs)</span>
+      </label>
+      <label class="trigger-item">
+        <input type="checkbox" checked>
+        <span>Six (6 runs)</span>
+      </label>
+      <label class="trigger-item">
+        <input type="checkbox" checked>
+        <span>Wicket</span>
+      </label>
+      <label class="trigger-item">
+        <input type="checkbox" checked>
+        <span>Maiden Over</span>
+      </label>
+      <label class="trigger-item">
+        <input type="checkbox" checked>
+        <span>Fifty (50 runs)</span>
+      </label>
+      <label class="trigger-item">
+        <input type="checkbox" checked>
+        <span>Century (100 runs)</span>
+      </label>
+      <label class="trigger-item">
+        <input type="checkbox" checked>
+        <span>5-Wicket Haul</span>
+      </label>
+      <label class="trigger-item">
+        <input type="checkbox" checked>
+        <span>Hat-trick</span>
+      </label>
+      <label class="trigger-item">
+        <input type="checkbox">
+        <span>Powerplay End</span>
+      </label>
+      <label class="trigger-item">
+        <input type="checkbox" checked>
+        <span>Innings End</span>
+      </label>
+      <label class="trigger-item">
+        <input type="checkbox" checked>
+        <span>Match Won</span>
+      </label>
+      <label class="trigger-item">
+        <input type="checkbox">
+        <span>Dot Ball Pressure</span>
+      </label>
+    </div>
+  </div>
+</div>
+
+<div class="commentary-preview">
+  <h3>Sample Commentary</h3>
+  <div class="preview-card">
+    <div class="commentary-feed">
+      <div class="commentary-item boundary">
+        <span class="time">18.2</span>
+        <span class="trigger-badge">BOUNDARY</span>
+        <p>"Cracking shot through the covers! Four runs."</p>
+      </div>
+      <div class="commentary-item six">
+        <span class="time">18.1</span>
+        <span class="trigger-badge">SIX</span>
+        <p>"That's gone all the way! Maximum! Six runs."</p>
+      </div>
+      <div class="commentary-item wicket">
+        <span class="time">17.6</span>
+        <span class="trigger-badge">WICKET</span>
+        <p>"OUT! The batsman has to go. Big wicket."</p>
+      </div>
+      <div class="commentary-item fifty">
+        <span class="time">17.4</span>
+        <span class="trigger-badge">FIFTY</span>
+        <p>"Fifty up! A well-deserved half-century."</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="connection-status">
+  <h3>WebSocket Status</h3>
+  <div class="status-card">
+    <div class="status-indicator connected"></div>
+    <div class="status-info">
+      <strong>Connected</strong>
+      <p>Real-time commentary is active</p>
+    </div>
+    <div class="status-stats">
+      <span>0 active matches</span>
+      <span>0 clients connected</span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .commentary-settings {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .setting-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+  .setting-card h3 {
+    margin: 0 0 0.25rem;
+  }
+  .setting-description {
+    margin: 0 0 1rem;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+  }
+  .persona-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .persona-option {
+    cursor: pointer;
+  }
+  .persona-option input { display: none; }
+  .persona-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    transition: all 0.2s;
+  }
+  .persona-option.active .persona-content,
+  .persona-option input:checked + .persona-content {
+    border-color: var(--primary);
+    background: rgba(99, 102, 241, 0.1);
+  }
+  .persona-icon { font-size: 1.5rem; }
+  .persona-content strong { display: block; }
+  .persona-content p { margin: 0; font-size: 0.75rem; color: var(--text-muted); }
+  .trigger-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+  .trigger-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .trigger-item:hover {
+    background: var(--bg-secondary);
+  }
+  .commentary-preview, .connection-status {
+    margin-bottom: 1.5rem;
+  }
+  .commentary-preview h3, .connection-status h3 {
+    margin-bottom: 1rem;
+  }
+  .preview-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+  .commentary-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .commentary-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    border-left: 3px solid var(--border-color);
+  }
+  .commentary-item.boundary { border-left-color: #10b981; }
+  .commentary-item.six { border-left-color: #6366f1; }
+  .commentary-item.wicket { border-left-color: #ef4444; }
+  .commentary-item.fifty { border-left-color: #f59e0b; }
+  .commentary-item .time {
+    font-family: monospace;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    min-width: 40px;
+  }
+  .trigger-badge {
+    font-size: 0.625rem;
+    font-weight: 600;
+    padding: 0.125rem 0.5rem;
+    border-radius: 4px;
+    background: var(--primary);
+    color: white;
+  }
+  .commentary-item p {
+    margin: 0;
+    flex: 1;
+    font-style: italic;
+  }
+  .status-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .status-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ef4444;
+  }
+  .status-indicator.connected { background: #10b981; }
+  .status-info { flex: 1; }
+  .status-info strong { display: block; }
+  .status-info p { margin: 0; font-size: 0.875rem; color: var(--text-muted); }
+  .status-stats {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+  }
+  @media (max-width: 768px) {
+    .commentary-settings { grid-template-columns: 1fr; }
+    .trigger-list { grid-template-columns: 1fr; }
+  }
+</style>

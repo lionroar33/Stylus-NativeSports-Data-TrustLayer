@@ -1,0 +1,232 @@
+{{!< layouts/main}}
+
+<div class="profile-header">
+  <div class="profile-cover"></div>
+  <div class="profile-info">
+    <div class="avatar xlarge">JD</div>
+    <div class="profile-details">
+      <h1>John Doe</h1>
+      <p class="bio">Cricket enthusiast | All-rounder | Team Alpha</p>
+      <div class="profile-stats">
+        <div class="stat">
+          <strong>156</strong>
+          <span>Matches</span>
+        </div>
+        <div class="stat">
+          <strong>4.2k</strong>
+          <span>Followers</span>
+        </div>
+        <div class="stat">
+          <strong>312</strong>
+          <span>Following</span>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-outline">Edit Profile</button>
+  </div>
+</div>
+
+<div class="profile-content">
+  <div class="profile-tabs">
+    <button class="tab-btn active">Stats</button>
+    <button class="tab-btn">Posts</button>
+    <button class="tab-btn">Achievements</button>
+    <button class="tab-btn">Gallery</button>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <h3>Batting</h3>
+      <div class="stat-item">
+        <span>Total Runs</span>
+        <strong>3,456</strong>
+      </div>
+      <div class="stat-item">
+        <span>Average</span>
+        <strong>42.5</strong>
+      </div>
+      <div class="stat-item">
+        <span>Strike Rate</span>
+        <strong>128.4</strong>
+      </div>
+      <div class="stat-item">
+        <span>Highest Score</span>
+        <strong>134*</strong>
+      </div>
+      <div class="stat-item">
+        <span>Centuries</span>
+        <strong>5</strong>
+      </div>
+      <div class="stat-item">
+        <span>Half Centuries</span>
+        <strong>18</strong>
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <h3>Bowling</h3>
+      <div class="stat-item">
+        <span>Total Wickets</span>
+        <strong>89</strong>
+      </div>
+      <div class="stat-item">
+        <span>Average</span>
+        <strong>24.3</strong>
+      </div>
+      <div class="stat-item">
+        <span>Economy</span>
+        <strong>7.2</strong>
+      </div>
+      <div class="stat-item">
+        <span>Best Figures</span>
+        <strong>5/23</strong>
+      </div>
+      <div class="stat-item">
+        <span>5-Wicket Hauls</span>
+        <strong>2</strong>
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <h3>Fielding</h3>
+      <div class="stat-item">
+        <span>Catches</span>
+        <strong>67</strong>
+      </div>
+      <div class="stat-item">
+        <span>Run Outs</span>
+        <strong>12</strong>
+      </div>
+      <div class="stat-item">
+        <span>Stumpings</span>
+        <strong>0</strong>
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <h3>Recent Form</h3>
+      <div class="form-display">
+        <span class="form-badge win">W</span>
+        <span class="form-badge win">W</span>
+        <span class="form-badge loss">L</span>
+        <span class="form-badge win">W</span>
+        <span class="form-badge win">W</span>
+      </div>
+      <p class="form-summary">4 wins in last 5 matches</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .profile-header {
+    margin: -2rem -2rem 0;
+  }
+  .profile-cover {
+    height: 150px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  }
+  .profile-info {
+    display: flex;
+    align-items: flex-end;
+    gap: 1.5rem;
+    padding: 0 2rem;
+    margin-top: -40px;
+    margin-bottom: 2rem;
+  }
+  .avatar.xlarge {
+    width: 100px;
+    height: 100px;
+    font-size: 2rem;
+    border: 4px solid var(--bg-primary);
+  }
+  .profile-details {
+    flex: 1;
+    padding-top: 50px;
+  }
+  .profile-details h1 {
+    margin: 0 0 0.25rem;
+  }
+  .profile-details .bio {
+    margin: 0 0 1rem;
+    color: var(--text-muted);
+  }
+  .profile-stats {
+    display: flex;
+    gap: 2rem;
+  }
+  .profile-stats .stat {
+    text-align: center;
+  }
+  .profile-stats .stat strong {
+    display: block;
+    font-size: 1.25rem;
+  }
+  .profile-stats .stat span {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+  }
+  .profile-content {
+    padding: 0 2rem 2rem;
+  }
+  .profile-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+  }
+  .tab-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    background: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-radius: 6px;
+  }
+  .tab-btn.active {
+    background: var(--primary);
+    color: white;
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+  .stat-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.25rem;
+  }
+  .stat-card h3 {
+    margin: 0 0 1rem;
+    font-size: 1rem;
+    color: var(--primary);
+  }
+  .stat-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .stat-item:last-child { border-bottom: none; }
+  .stat-item span { color: var(--text-muted); }
+  .form-display {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+  .form-badge {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+  .form-badge.win { background: #10b981; color: white; }
+  .form-badge.loss { background: #ef4444; color: white; }
+  .form-summary { margin: 0; font-size: 0.875rem; color: var(--text-muted); }
+</style>
